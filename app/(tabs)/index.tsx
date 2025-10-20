@@ -38,17 +38,27 @@ export default function HomeScreen() {
           <PraiseText style={{ fontSize: 14, lineHeight: 22, color: colors.text }}>
             I turn ideas into reality with code. 
           </PraiseText>
-           <View style={[$.gap3, $.mt2]}>
-          <PraiseButton 
-            variant="danger" 
-            size="lg" 
-            fullWidth
-            onPress={() => Linking.openURL("mailto:pafolabi740@gmail.com")}
-          >
-           Check my github
-          </PraiseButton>
-          
-        </View>
+          <View style={[$.gap3, $.mt2]}>
+            <TouchableOpacity
+              style={[
+                styles.githubButton,
+                { backgroundColor: colors.primary }
+              ]}
+              onPress={() => Linking.openURL("https://github.com")}
+              activeOpacity={0.8}
+            >
+              <PraiseText 
+                style={{ 
+                  color: colors.background,
+                  fontWeight: "600",
+                  fontSize: 16,
+                  textAlign: "center"
+                }}
+              >
+                Check my GitHub
+              </PraiseText>
+            </TouchableOpacity>
+          </View>
         </View>
         <View style={[styles.statsRow, $.gap2]}>
           {my_stats.map((stat, idx) => (
@@ -89,7 +99,18 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 2,
   },
-
+  githubButton: {
+    paddingVertical: 14,
+    paddingHorizontal: 16,
+    borderRadius: 12,
+    alignItems: "center",
+    justifyContent: "center",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+  },
   tag: {
     paddingHorizontal: 10,
     paddingVertical: 6,
