@@ -17,22 +17,6 @@ export default function SettingsScreen() {
   const { colors, isDark } = useTheme();
   const { toggleTheme, theme } = useThemeContext();
 
-  const handleAboutMe = () => {
-    Linking.openURL('https://pafolabi.dev');
-  };
-
-  const handlePrivacy = () => {
-    Linking.openURL('https://pafolabi.dev/privacy');
-  };
-
-  const handleTerms = () => {
-    Linking.openURL('https://pafolabi.dev/terms');
-  };
-
-  const handleSendFeedback = () => {
-    Linking.openURL('mailto:pafolabi740@gmail.com?subject=Portfolio App Feedback');
-  };
-
   const SettingRow = ({ label, onPress, showArrow = true, children }) => (
     <TouchableOpacity
       style={[
@@ -106,8 +90,6 @@ export default function SettingsScreen() {
             </SettingRow>
           </View>
         </View>
-
-       
       </ScrollView>
     </View>
   );

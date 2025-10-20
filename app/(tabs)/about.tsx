@@ -37,13 +37,13 @@ export default function AboutScreen() {
         <View style={styles.section}>
           <PraiseHeading style={[styles.sectionTitle, { color: colors.text }]}>My Story</PraiseHeading>
           <PraiseText style={[styles.sectionText, { color: colors.textMuted }]}>
-            My journey in tech started with curiosity and a desire to solve real problems. Over the years, Ive evolved from learning the basics to shipping production-grade web applications. I believe in writing clean code, collaborating openly, and never stopping the learning process.
+            My journey in tech Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis veritatis architecto, ex et in inventore illum possimus consectetur laboriosam repudiandae commodi accusamus, molestiae vitae illo esse sequi provident. Itaque, ratione.
           </PraiseText>
         </View>
         <View style={styles.section}>
           <PraiseHeading style={[styles.sectionTitle, { color: colors.text }]}>Outside of Work</PraiseHeading>
           <PraiseText style={[styles.sectionText, { color: colors.textMuted }]}>
-            Im an avid reader, coffee enthusiast, and digital explorer. Youll find me experimenting with new technologies, contributing to open-source projects, or enjoying long walks while brainstorming the next big idea.
+            I am interested in cooking beans and Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem debitis neque deserunt, hic totam commodi?
           </PraiseText>
         </View>
 
