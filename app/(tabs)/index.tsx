@@ -1,20 +1,40 @@
 import { Image } from "expo-image";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Button, TextInput } from "react-native";
 import { ThemedView } from "@/components/themed-view";
 import { useTokens } from "@/constants/theme";
 import {PraiseHeading} from "@/components/";
 import { PraiseText } from "@/components/";
 import { PraiseButton } from "@/components/";
+import { useState } from "react";
 
 
 export default function AboutScreen() {
+  const [inputValue, setInputValue] = useState("");
    const $ = useTokens();
   return (
 
       <View style={[$.flex1, $.p4, $.justifyCenter, $.gap4, {backgroundColor: '#F9FAFB'}]}>
+         <TextInput
+        placeholder="dummy search..."
+        value={inputValue}
+        onChangeText={setInputValue}
+        // style={styles.input}
+        style={{
+          backgroundColor: "#fff",
+          paddingVertical: 10,
+          paddingHorizontal: 10,
+          borderRadius: 20,
+          borderWidth: 1,
+          position: "absolute",
+          top: 10,
+          width: "100%",
+          borderColor: "#ccc",
+        }}
+        placeholderTextColor="#9CA3AF"
+      />
         <PraiseHeading>Hi, I&apos;m Praise 👋</PraiseHeading>
-        <PraiseText>Frontend web, Mobile, Backend development</PraiseText>
-        <PraiseButton>Hire me</PraiseButton>
+        <PraiseText style={{maxWidth: 200}}>Frontend web, Mobile, Backend development</PraiseText>
+        <PraiseButton variant="danger" size="lg" fullWidth style={{backgroundColor: '#54a0ebff'}}>Hire me</PraiseButton>
   
       {/* <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Hi, I’m Praise Afolabi 👋</ThemedText>
