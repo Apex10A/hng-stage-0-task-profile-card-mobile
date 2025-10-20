@@ -1,70 +1,104 @@
-import { Image } from "expo-image";
-import { StyleSheet, View, Button, TextInput } from "react-native";
-import { ThemedView } from "@/components/themed-view";
-import { useTokens } from "@/constants/theme";
-import {PraiseHeading} from "@/components/";
+import { ScrollView, View, StyleSheet, TouchableOpacity, Linking } from "react-native";
+import { PraiseHeading } from "@/components/";
 import { PraiseText } from "@/components/";
 import { PraiseButton } from "@/components/";
-import { useState } from "react";
+import useTheme from "@/components/useTheme";
+import { useTokens } from "@/constants/theme";
 
+export default function HomeScreen() {
+  const $ = useTokens();
+  const { colors } = useTheme();
 
-export default function AboutScreen() {
-  const [inputValue, setInputValue] = useState("");
-   const $ = useTokens();
+  const my_stats = [
+    {label: "Projects", value: "15+" },
+    {label: "Experience", value: "2+ yrs" },
+    {label: "Tech Stack", value: "10+" },
+  ];
+
   return (
-
-      <View style={[$.flex1, $.p4, $.justifyCenter, $.gap4, {backgroundColor: '#F9FAFB'}]}>
-         <TextInput
-        placeholder="dummy search..."
-        value={inputValue}
-        onChangeText={setInputValue}
-        // style={styles.input}
-        style={{
-          backgroundColor: "#fff",
-          paddingVertical: 10,
-          paddingHorizontal: 10,
-          borderRadius: 20,
-          borderWidth: 1,
-          position: "absolute",
-          top: 10,
-          width: "100%",
-          borderColor: "#ccc",
-        }}
-        placeholderTextColor="#9CA3AF"
-      />
-        <PraiseHeading>Hi, I&apos;m Praise 👋</PraiseHeading>
-        <PraiseText style={{maxWidth: 200}}>Frontend web, Mobile, Backend development</PraiseText>
-        <PraiseButton variant="danger" size="lg" fullWidth style={{backgroundColor: '#54a0ebff'}}>Hire me</PraiseButton>
-  
-      {/* <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Hi, I’m Praise Afolabi 👋</ThemedText>
-      </ThemedView>
-
-      <ThemedView style={styles.textContainer}>
-        <ThemedText type="default">
-         I’m a Product Developer passionate about building modern, scalable, and user-friendly web applications. I do beyond transforming designs into clean, functional code and I focus on solving real business problems and driving innovation. I don’t just code interfaces, I build experiences that create impact and help products grow.
-        </ThemedText>
-      </ThemedView> */}
-
+    <ScrollView style={[$.flex1, { backgroundColor: colors.background }]} showsVerticalScrollIndicator={false}>
+      <View style={[$.p4, $.gap4, { paddingTop: 60 }]}>
+        <View style={$.gap2}>
+          <PraiseHeading style={[$.fontSemibold, { fontSize: 36, lineHeight: 44, color: colors.text }]}>
+            Hi, I&apos;m Praise 👋
+          </PraiseHeading>
+          <PraiseText 
+            style={{ 
+              fontSize: 16, 
+              color: colors.textMuted,
+              lineHeight: 24 
+            }}
+          >
+            Frontend web, Mobile, Backend Developer
+          </PraiseText>
+        </View>
+        <View 
+         
+        >
+          <PraiseText style={{ fontSize: 14, lineHeight: 22, color: colors.text }}>
+            I turn ideas into reality with code. 
+          </PraiseText>
+           <View style={[$.gap3, $.mt2]}>
+          <PraiseButton 
+            variant="danger" 
+            size="lg" 
+            fullWidth
+            onPress={() => Linking.openURL("mailto:pafolabi740@gmail.com")}
+          >
+           Check my github
+          </PraiseButton>
+          
+        </View>
+        </View>
+        <View style={[styles.statsRow, $.gap2]}>
+          {my_stats.map((stat, idx) => (
+            <View
+              key={idx}
+              style={[
+                styles.statCard,
+                { backgroundColor: colors.surface, flex: 1 }
+              ]}
+            >
+              <PraiseHeading style={{ fontSize: 20, color: colors.textMuted }}>{stat.value}</PraiseHeading>
+              <PraiseText style={{ fontSize: 12, color: colors.textMuted }}>
+                {stat.label}
+              </PraiseText>
+            </View>
+          ))}
+        </View>
+       
       </View>
-
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
+  statsRow: {
     flexDirection: "row",
+    marginVertical: 8,
+  },
+  statCard: {
+    paddingVertical: 20,
+    paddingHorizontal: 12,
+    borderRadius: 12,
     alignItems: "center",
-    gap: 8,
+    justifyContent: "center",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.05,
+    shadowRadius: 4,
+    elevation: 2,
   },
-  textContainer: {
-    gap: 8,
-    marginBottom: 8,
+
+  tag: {
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    borderRadius: 8,
   },
-  reactLogo: {
-    height: "100%",
-    width: "100%",
-    bottom: 0,
-    position: "absolute",
+  viewAllButton: {
+    paddingVertical: 14,
+    borderRadius: 12,
+    borderWidth: 1.5,
+    marginTop: 4,
   },
 });
