@@ -63,41 +63,42 @@ export const PraiseButton: React.FC<PraiseButtonProps> = ({
   const getVariantStyles = () => {
     const isDisabled = disabled || loading;
 
-    // switch (variant) {
-    //   case "primary":
-    //     return {
-    //       backgroundColor: isDisabled ? colors.accent : colors.primary,
-    //       borderWidth: 0,
-    //     };
-    //   case "secondary":
-    //     return {
-    //       backgroundColor: isDisabled ? colors.background : colors.surface,
-    //       borderWidth: 1,
-    //       borderColor: colors.border,
-    //     };
-    //   case "outline":
-    //     return {
-    //       backgroundColor: "transparent",
-    //       color: "#060089",
-    //       borderWidth: 1,
-    //       borderColor: isDisabled ? colors.textMuted : colors.primary,
-    //     };
-    //   case "ghost":
-    //     return {
-    //       backgroundColor: "transparent",
-    //       borderWidth: 0,
-    //     };
-    //   case "danger":
-    //     return {
-    //       backgroundColor: isDisabled ? colors.textMuted : colors.error,
-    //       borderWidth: 0,
-    //     };
-    //   default:
-    //     return {
-    //       backgroundColor: isDisabled ? colors.textMuted : colors.primary,
-    //       borderWidth: 0,
-    //     };
-    // }
+    switch (variant) {
+      case "primary":
+        return {
+        //   backgroundColor: isDisabled ? colors.accent : colors.primary,
+          borderWidth: 0,
+        };
+      case "secondary":
+        return {
+        //   backgroundColor: isDisabled ? colors.background : colors.surface,
+          borderWidth: 1,
+        //   borderColor: colors.border,
+        };
+      case "outline":
+        return {
+          backgroundColor: "transparent",
+          color: "#060089",
+          borderWidth: 1,
+        //   borderColor: isDisabled ? colors.textMuted : colors.primary,
+        };
+      case "ghost":
+        return {
+          backgroundColor: "transparent",
+          borderWidth: 0,
+        };
+      case "danger":
+        return {
+          backgroundColor: "#f91010ff",
+          color: "#000",
+          borderWidth: 0,
+        };
+      default:
+        return {
+        //   backgroundColor: isDisabled ? colors.textMuted : colors.primary,
+          borderWidth: 0,
+        };
+    }
   };
 
   // Text color based on variant
